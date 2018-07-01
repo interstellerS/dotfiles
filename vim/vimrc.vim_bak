@@ -1,8 +1,5 @@
 " General Vim settings
 	syntax on
-	" no vi compat
-	set nocompatible
-
 	let mapleader=","
 	set autoindent
 	set tabstop=4
@@ -10,15 +7,7 @@
 	set dir=/tmp/
 	set relativenumber 
 	set number
-	
-	" make vim try to detect file types and load plugins for them
-	filetype on
-	filetype plugin on
-	filetype indent on
-	
-	" Toggle nerdtree
-	nmap <leader>ne :NERDTree<cr>
-	
+
 	set cursorline
 	hi Cursor ctermfg=White ctermbg=Yellow cterm=bold guifg=white guibg=yellow gui=bold
 
@@ -32,12 +21,11 @@
 
 	nnoremap H 0
 	nnoremap L $
-	 " nnoremap J G
+	nnoremap J G
 	nnoremap K gg
 
 	map <tab> %
-	map ; :Files<CR>
-	map <C-o> :NERDTreeToggle<CR>
+
 	set backspace=indent,eol,start
 
 	nnoremap <Space> za
@@ -50,7 +38,6 @@
 	set pastetoggle=<F2>
 	set mouse=a
 	set incsearch
-	set laststatus=2
 
 " Language Specific
 	" General
@@ -109,31 +96,4 @@
 " Future stuff
 	"Swap line
 	"Insert blank below and above
-
-" ---------------------- PLUGIN CONFIGURATION ----------------------
-" initiate Vundle
-let &runtimepath.=',$HOME/.vim/bundle/Vundle.vim'
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" start plugin defintion
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-scripts/L9'
-Plugin 'vim-scripts/FuzzyFinder'
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'kana/vim-surround'
-Plugin 'terryma/vim-multiple-cursors'
-" end plugin definition
-call vundle#end()            " required for vundle
-
-" start NERDTree on start-up and focus active window
-autocmd VimEnter * wincmd p
-
-" map FuzzyFinder
-noremap <leader>b :FufBuffer<cr>
-noremap <leader>f :FufFile<cr>
 
